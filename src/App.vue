@@ -13,7 +13,17 @@
       <p>Modal content</p>  
     </Modal>
   </div>
-  <button @click="modalToggle()">Toggle modal</button>
+  <button @click="modalToggle()">Toggle modal 1</button>
+
+  <div v-if="modalShow2">
+   <Modal @close="modalToggle2()">
+     <template v-slot:links>
+        <a href="#">sign up</a>
+        <a href="#">sign out</a>
+      </template>
+   </Modal>
+  </div>
+  <button @click="modalToggle2()">Toggle model 2</button>
 </template>
 
 <script>
@@ -27,18 +37,22 @@ export default {
       title: 'My first component created by Vue.js',
       header: 'Hello world props',
       text: 'Modal content',
-      modalShow: false
+      modalShow: false,
+      modalShow2: false
     }
   },
   methods:{
     modalToggle(){
       this.modalShow = !this.modalShow
+    },
+    modalToggle2(){
+      this.modalShow2 = !this.modalShow2
     }
   }
 }
 </script>
 
-<style>
+<style >
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
