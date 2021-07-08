@@ -1,6 +1,6 @@
 <template>
   <h1>{{ title }}</h1>
-  <Modal />
+  <Modal :header="header" :text="text" theme="sale"/>
 </template>
 
 <script>
@@ -11,7 +11,9 @@ export default {
   components: { Modal },
   data() {
     return {
-      title: 'My first component created by Vue.js'
+      title: 'My first component created by Vue.js',
+      header: 'Hello world props',
+      text: 'Modal content'
     }
   }
 }
