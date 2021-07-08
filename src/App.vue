@@ -4,7 +4,14 @@
     Welcome...
   </p>
   <div v-if="modalShow">
-    <Modal :header="header" :text="text" theme="sale" @close="modalToggle()"/>
+    <Modal  theme="" @close="modalToggle()">
+      <template v-slot:links>
+        <a href="#">sign up now</a>
+        <a href="#">more info</a>
+      </template>
+      <h1>Title modal</h1>
+      <p>Modal content</p>  
+    </Modal>
   </div>
   <button @click="modalToggle()">Toggle modal</button>
 </template>
@@ -40,4 +47,6 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+
 </style>
