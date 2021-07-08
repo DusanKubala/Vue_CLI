@@ -1,6 +1,12 @@
 <template>
   <h1>{{ title }}</h1>
-  <Modal :header="header" :text="text" theme="sale"/>
+  <p>
+    Welcome...
+  </p>
+  <div v-if="modalShow">
+    <Modal :header="header" :text="text" theme="sale" @close="modalToggle()"/>
+  </div>
+  <button @click="modalToggle()">Toggle modal</button>
 </template>
 
 <script>
@@ -13,7 +19,13 @@ export default {
     return {
       title: 'My first component created by Vue.js',
       header: 'Hello world props',
-      text: 'Modal content'
+      text: 'Modal content',
+      modalShow: false
+    }
+  },
+  methods:{
+    modalToggle(){
+      this.modalShow = !this.modalShow
     }
   }
 }
